@@ -12,18 +12,10 @@ function toCamelCase(str){
 	let firstChar = "";
 	testStr.forEach(function(val, i, testStr){
 		if(typeof(testStr[i]) == "string"){
-				if(i == 0){
-					if(testStr[i].charCodeAt(0) <= 97){ // check whether first letter was capital letter or not
-						firstChar= testStr[i].charAt(0);
-					}
-					else{
-						firstChar= testStr[i].charAt(0);
-					}
-				}else{
-					firstChar = testStr[i].charAt(0).toUpperCase();
-				}
-				const remainingStr = testStr[i].slice(1);
-				result = result+firstChar+remainingStr; 
+			let ab = testStr[i].charAt(0);
+			firstChar = i != 0 ? ab.toUpperCase() : ab;
+			const remainingStr = testStr[i].slice(1);
+			result = result+firstChar+remainingStr; 
 		}
 	});
 	return result;
